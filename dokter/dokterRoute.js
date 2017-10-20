@@ -19,9 +19,8 @@ route.get('/dokter/:_id', function (req, res) {
         res.json(respon);
     });
 });
-route.get('/nama/:nama', function (req, res) {
-    let id = req.params.nama;
-    dokterController.getDokterByNama(nama,function (err, respon) {
+route.get('/namadokter', function (req, res) {
+    dokterController.getDokterByNama(function (err, respon) {
         if (err) {
             throw err;
         }
