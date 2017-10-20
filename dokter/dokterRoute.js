@@ -20,6 +20,7 @@ route.get('/dokter/:_id', function (req, res) {
     });
 });
 route.get('/namadokter', function (req, res) {
+    let nama = req.params.NamaDokter;
     dokterController.getDokterByNama(function (err, respon) {
         if (err) {
             throw err;
