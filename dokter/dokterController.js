@@ -4,8 +4,8 @@ module.exports.getDokter = function(callback,limit){
     Dokter.find(callback).limit(limit);
 }
 
-module.exports.getDokterByNama = function(nama,callback,limit){
-    Dokter.find({NamaDokter:nama},callback).limit(limit);
+module.exports.getDokterByNama = function(NamaDokter,callback,limit){
+    Dokter.find({NamaDokter:NamaDokter},callback).limit(limit);
 }
 
 module.exports.getDokterById = function(id,callback,limit){
