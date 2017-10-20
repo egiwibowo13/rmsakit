@@ -3,6 +3,11 @@ Dokter = require('./dokterModel.js');
 module.exports.getDokter = function(callback,limit){
     Dokter.find(callback).limit(limit);
 }
+
+module.exports.getDokter = function(callback,limit){
+    Dokter.find({NamaDokter:nama},callback).limit(limit);
+}
+
 module.exports.getDokterById = function(id,callback,limit){
     Dokter.findById(id,callback).limit(limit);
 }
