@@ -3,6 +3,12 @@ let mong = require('mongoose');
 let ex = require('express');
 let app = ex();
 
+global.config = require('./config/config');
+
+let jwt    = require('jsonwebtoken');
+let jwt_secret = "shhh";
+let verifyToken = require('./middleware/verifyToken');
+
 //route
 app.use(bodyParser.json());
 // app.use(function(req,res,next){
@@ -18,6 +24,9 @@ app.use('/',function(req,res,next){
     next();
 });
 
+let login = require('./login/loginRoute.js');
+app.use('/api',login);
+
 
 let petugasRoute = require('./petugas/petugasRoute.js');
 app.use('/api',petugasRoute);
@@ -29,7 +38,7 @@ let rumahsakitRoute = require('./rumahsakit/rumahsakitRoute.js');
 app.use('/api',rumahsakitRoute);
 
 let perawatanRoute = require('./perawatan/perawatanRoute.js');
-app.use('/api',perawatanRoute);
+app.use('/api',verifyToken,perawatanRoute);
 
 let pendaftaranRoute = require('./pendaftaran/pendaftaranRoute.js');
 app.use('/api',pendaftaranRoute);
