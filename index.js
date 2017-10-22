@@ -34,7 +34,7 @@ let perawatanRoute = require('./perawatan/perawatanRoute.js');
 app.use('/api',perawatanRoute);
 
 let pendaftaranRoute = require('./pendaftaran/pendaftaranRoute.js');
-app.use('/api',verifyToken,pendaftaranRoute);
+app.use('/api',pendaftaranRoute);
 
 let perawatanDiagnosaRoute = require('./perawatanDiagnosa/perawatanDiagnosaRoute.js');
 app.use('/api',perawatanDiagnosaRoute);
