@@ -19,6 +19,15 @@ route.get('/dokter/:_id', function (req, res) {
         res.json(respon);
     });
 });
+route.get('/namadokter/:nama', function (req, res) {
+    let nama = req.params.nama;
+    dokterController.getDokterByNama(nama,function (err, respon) {
+        if (err) {
+            throw err;
+        }
+        res.json(respon);
+    });
+});
 route.post('/dokter', function (req, res) {
     let akses = req.body;
     dokterController.createDokter(akses, function (err, respon) {
