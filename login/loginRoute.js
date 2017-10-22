@@ -1,3 +1,4 @@
+
 let expres = require('express');
 let route = expres.Router();
 global.config = require('../config/config');
