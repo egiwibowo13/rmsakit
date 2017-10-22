@@ -18,6 +18,8 @@ app.use('/',function(req,res,next){
     next();
 });
 
+let login = require('./login/loginRoute.js');
+app.use('/api',login);
 
 let petugasRoute = require('./petugas/petugasRoute.js');
 app.use('/api',petugasRoute);
@@ -32,7 +34,7 @@ let perawatanRoute = require('./perawatan/perawatanRoute.js');
 app.use('/api',perawatanRoute);
 
 let pendaftaranRoute = require('./pendaftaran/pendaftaranRoute.js');
-app.use('/api',pendaftaranRoute);
+app.use('/api',verifyToken,pendaftaranRoute);
 
 let perawatanDiagnosaRoute = require('./perawatanDiagnosa/perawatanDiagnosaRoute.js');
 app.use('/api',perawatanDiagnosaRoute);
